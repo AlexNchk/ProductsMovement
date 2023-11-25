@@ -2,8 +2,8 @@ import java.time.LocalDate;
 
 public class Product {
     private final String name;
-    private final int quantity;
-    private final LocalDate startDate;
+    private int quantity;
+    private LocalDate startDate;
     private final LocalDate endDate;
 
     /* В этом класее создаем объект имеющий следующие свойства
@@ -27,10 +27,16 @@ public class Product {
     public LocalDate getEndDate() {
         return endDate;
     }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 // пока оставил на случай включения функции редактирования списка
-//    public void setEndDate(LocalDate endDate) {
-//        this.endDate = endDate;
-//    }
+public void setStartDate(LocalDate startDate) {
+    this.startDate = startDate;
+
+
+}
 
     @Override
     public String toString() {

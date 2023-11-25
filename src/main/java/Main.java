@@ -15,10 +15,17 @@ public class Main {
             System.out.println("5. Смотреть список полностью");
             System.out.println("6. Редактировать");
             String inputEnd = scanner.nextLine();
-            if (inputEnd.equals("end")) {
+            if (inputEnd.equals("end") || inputEnd.equals("утв")) {
                 break;
             }
-            int input = Integer.parseInt(inputEnd);
+            int input;
+            try {
+                input = Integer.parseInt(inputEnd);
+            } catch (NumberFormatException e) {
+                System.out.println(e);
+                System.out.println("Введите число или end!!!");
+                break;
+            }
             switch (input) {
                 case 1:
                     System.out.println("Введи название в формате <Название-размер>. Пример: Антик-55");
@@ -51,17 +58,14 @@ public class Main {
                     PrintOperations.allNamesPrint(products);
                     break;
                 case 6:
-                    System.out.println("Вы в секретном отделе :-)");//шутка, хочу добавить опцию редактирования
-                    System.out.print("Введи название");
+                    System.out.println("Вы в режиме редактирования!!!");
+                    System.out.print("Введи название ");
                     String nameSearch = scanner.nextLine();
                     PrintOperations.namesPrint(products, nameSearch);
                     System.out.println("Введи дату введения в работу в формате ГГГГ-ММ-ДД. Пример 2023-11-23");
                     LocalDate startDateSearch = LocalDate.parse(scanner.nextLine());
                     PrintOperations.namesAndDatePrint(products, nameSearch, startDateSearch);
-                    //сюда добавим функцию удаления, пока не добрался, так  что вводим данные внимательно )))
                     break;
-
-
                 default:
                     System.out.println("Нет такой опции");
             }
