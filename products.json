@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Нулевое изделие",
+    "quantity": 1111,
+    "startDate": {
+      "year": 2023,
+      "month": 10,
+      "day": 28
+    },
+    "endDate": {
+      "year": 2023,
+      "month": 10,
+      "day": 28
+    }
+  }
+]
