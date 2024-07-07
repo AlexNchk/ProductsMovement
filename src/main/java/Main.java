@@ -1,9 +1,10 @@
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException, IOException {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             List<Product> products = GsonOperations.loadProducts();//загружаем список из файла
@@ -24,6 +25,8 @@ public class Main {
             } catch (NumberFormatException e) {
                 System.out.println(e);
                 System.out.println("Введите число или end!!!");
+                System.out.println("Выход из программы...");
+                System.exit(0);
                 break;
             }
             switch (input) {
@@ -55,8 +58,13 @@ public class Main {
                     LocalDate endDateInit = LocalDate.parse(scanner.nextLine());
                     PrintOperations.datePrintEnd(products, endDateInit);
                 case 5:
-                    PrintOperations.allNamesPrint(products);
-                    break;
+                    try {
+                        PrintOperations.allNamesPrint(products);
+                    } catch (Exception e){
+                        System.out.println("Файл пуст!");
+                        Thread.sleep(600);
+                        break;
+                    }
                 case 6:
                     System.out.println("Вы в режиме редактирования!!!");
                     System.out.print("Введи название ");

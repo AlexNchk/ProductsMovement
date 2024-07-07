@@ -9,10 +9,11 @@ import java.io.Reader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class GsonOperations {
     // Этот класс отвечает за загрузку и сохранение списка в json формате
-    public static List<Product> loadProducts() {
+    public static List<Product> loadProducts() throws InterruptedException, IOException {
         List<Product> products = new ArrayList<>();
         try (Reader reader = new FileReader("products.json")) {
             Gson gson = new GsonBuilder().create();
@@ -20,7 +21,21 @@ public class GsonOperations {
             }.getType();
             products = gson.fromJson(reader, productListType);
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Файл не найден... Создать новый? (Д/Н)");
+            String inputNo = scanner.nextLine();
+            if (inputNo.equals("N") || inputNo.equals("Н") ||
+                    inputNo.equals("n") || inputNo.equals("н")) {
+                System.out.println("Выход из программы...");
+                Thread.sleep(300);
+                System.exit(0);
+            } else if (inputNo.equals("Y") || inputNo.equals("Д") ||
+                    inputNo.equals("y") || inputNo.equals("д")) {
+                System.out.println("Создаем новый файл...");
+                Thread.sleep(300);
+                FileWriter writer = new FileWriter("products.json");
+            }
         }
         return products;
     }
