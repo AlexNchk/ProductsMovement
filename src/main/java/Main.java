@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException, IOException {
+        Authorization.VerifyPassword();
         Scanner scanner = new Scanner(System.in);
         while (true) {
             List<Product> products = GsonOperations.loadProducts();//загружаем список из файла
