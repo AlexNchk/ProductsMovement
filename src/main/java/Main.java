@@ -1,12 +1,18 @@
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.io.File;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException, IOException {
         Authorization.VerifyPassword();
         Scanner scanner = new Scanner(System.in);
+        File file = new File("products.json");
+        if(!file.exists()){
+            List<Product> products = new ArrayList<>();
+        }
         while (true) {
             List<Product> products = GsonOperations.loadProducts();//загружаем список из файла
             System.out.println("Выбери действие или введи end:");
@@ -61,6 +67,7 @@ public class Main {
                 case 5:
                     try {
                         PrintOperations.allNamesPrint(products);
+                        break;
                     } catch (Exception e){
                         System.out.println("Файл пуст!");
                         Thread.sleep(600);

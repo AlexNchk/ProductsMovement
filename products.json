@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Байкал-60",
+    "quantity": 50,
+    "startDate": {
+      "year": 2024,
+      "month": 7,
+      "day": 7
+    },
+    "endDate": {
+      "year": 2024,
+      "month": 7,
+      "day": 10
+    }
+  },
+  {
+    "name": "Азов-45",
+    "quantity": 50,
+    "startDate": {
+      "year": 2024,
+      "month": 7,
+      "day": 7
+    },
+    "endDate": {
+      "year": 2024,
+      "month": 7,
+      "day": 11
+    }
+  }
+]
