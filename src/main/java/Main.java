@@ -60,10 +60,12 @@ public class Main {
                     System.out.println("Введи дату введения в работу в формате ГГГГ-ММ-ДД. Пример 2023-11-23");
                     LocalDate startDateInit = LocalDate.parse(scanner.nextLine());
                     PrintOperations.datePrintStart(products, startDateInit);
+                    break;
                 case 4:
                     System.out.println("Введи дату покраски в формате ГГГГ-ММ-ДД. Пример 2023-11-23");
                     LocalDate endDateInit = LocalDate.parse(scanner.nextLine());
                     PrintOperations.datePrintEnd(products, endDateInit);
+                    break;
                 case 5:
                     try {
                         PrintOperations.allNamesPrint(products);
